@@ -343,6 +343,18 @@ class Arquivo implements \Cnab\Remessa\IArquivo
             $detalhe->segmento_r->data_multa = 0;
         }
 
+        if (isset($boleto['valor_desconto2']) && isset($boleto['data_desconto2'])) {
+            $detalhe->segmento_r->codigo_desconto2 = 1;
+            $detalhe->segmento_r->valor_desconto2 = $boleto['valor_desconto2'];
+            $detalhe->segmento_r->data_desconto2 = $boleto['data_desconto2'];
+        }
+
+        if (isset($boleto['valor_desconto3']) && isset($boleto['data_desconto3'])) {
+            $detalhe->segmento_r->codigo_desconto3 = 1;
+            $detalhe->segmento_r->valor_desconto3 = $boleto['valor_desconto3'];
+            $detalhe->segmento_r->data_desconto3 = $boleto['data_desconto3'];
+        }
+
         $this->detalhes[] = $detalhe;
     }
 
